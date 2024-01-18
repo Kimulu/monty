@@ -61,4 +61,5 @@ void addqueue(stack_t **head, int n);
 void addnode(stack_t **head, int n);
 void handle_error(unsigned int counter, stack_t **head);
 int is_valid_number(const char *str);
+void pint(stack_t **stack, unsigned int counter);
 #endif
