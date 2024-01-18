@@ -1,4 +1,5 @@
 #include "monty.h"
+bus_t bus = {NULL, NULL, NULL, 0};
 /**
  * free_stack - Placeholder implementation of the free_stack function
  * @stack: Pointer to the top of the stack
@@ -21,7 +22,7 @@ free(temp);
 */
 int main(int argc, char *argv[])
 {
-bus_t bus = {NULL, NULL, NULL, 0};
+
 char *content;
 FILE *file;
 size_t size = 0;
@@ -57,3 +58,4 @@ free_stack(stack);
 fclose(file);
 return (0);
 }
+

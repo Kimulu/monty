@@ -8,10 +8,12 @@
  */
 void push(stack_t **head, unsigned int counter)
 {
-if (!bus.arg || !is_valid_number(bus.arg))
-handle_error(counter);
+int n;
 
-int n = atoi(bus.arg);
+if (!bus.arg || !is_valid_number(bus.arg))
+handle_error(counter, head);
+
+n = atoi(bus.arg);
 bus.lifi == 0 ? addnode(head, n) : addqueue(head, n);
 }
 
@@ -38,9 +40,10 @@ return (1);
 /**
  * handle_error - Handle errors in the push function
  * @counter: Line number in the Monty file
+ * @head: Pointer to the head of the stack
  * Return: No return value
  */
-void handle_error(unsigned int counter)
+void handle_error(unsigned int counter, stack_t **head)
 {
 fprintf(stderr, "L%d: usage: push integer\n", counter);
 fclose(bus.file);
