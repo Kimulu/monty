@@ -64,4 +64,5 @@ int is_valid_number(const char *str);
 void pint(stack_t **stack, unsigned int counter);
 void pop(stack_t **stack, unsigned int counter);
 void swap(stack_t **stack, unsigned int counter);
+void add(stack_t **stack, unsigned int counter);
 #endif
