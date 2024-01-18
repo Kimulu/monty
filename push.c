@@ -8,52 +8,44 @@
  */
 void push(stack_t **head, unsigned int counter)
 {
-    int n;
-    unsigned int j = 0;
-    int flag = 0;
+if (!bus.arg || !is_valid_number(bus.arg))
+handle_error(counter);
 
-    if (!bus.arg)
-    {
-        fprintf(stderr, "L%d: usage: push integer\n", counter);
-        fclose(bus.file);
-        free(bus.content);
-        free_stack(*head);
-        exit(EXIT_FAILURE);
-    }
+int n = atoi(bus.arg);
+bus.lifi == 0 ? addnode(head, n) : addqueue(head, n);
+}
 
-    if (bus.arg[0] == '-')
-    {
-        j++;
-    }
+/**
+ * is_valid_number - Check if a string is a valid integer
+ * @str: String to check
+ * Return: 1 if valid, 0 otherwise
+ */
+int is_valid_number(const char *str)
+{
+if (*str == '-')
+str++;
 
-    while (bus.arg[j] != '\0')
-    {
-        if (bus.arg[j] > '9' || bus.arg[j] < '0')
-        {
-            flag = 1;
-            break;
-        }
-        j++;
-    }
+while (*str)
+{
+if (!isdigit(*str))
+return (0);
+str++;
+}
 
-    if (flag == 1)
-    {
-        fprintf(stderr, "L%d: usage: push integer\n", counter);
-        fclose(bus.file);
-        free(bus.content);
-        free_stack(*head);
-        exit(EXIT_FAILURE);
-    }
+return (1);
+}
 
-    n = atoi(bus.arg);
-
-    if (bus.lifi == 0)
-    {
-        addnode(head, n);
-    }
-    else
-    {
-        addqueue(head, n);
-    }
+/**
+ * handle_error - Handle errors in the push function
+ * @counter: Line number in the Monty file
+ * Return: No return value
+ */
+void handle_error(unsigned int counter)
+{
+fprintf(stderr, "L%d: usage: push integer\n", counter);
+fclose(bus.file);
+free(bus.content);
+free_stack(*head);
+exit(EXIT_FAILURE);
 }
 

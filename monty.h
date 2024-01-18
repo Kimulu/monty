@@ -59,4 +59,6 @@ void pall(stack_t **stack, unsigned int line_number);
 void push(stack_t **head, unsigned int counter);
 void addqueue(stack_t **head, int n);
 void addnode(stack_t **head, int n);
+void handle_error(unsigned int counter);
+int is_valid_number(const char *str);
 #endif
