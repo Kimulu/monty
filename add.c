@@ -18,5 +18,5 @@ exit(EXIT_FAILURE);
 }
 
 (*stack)->next->n += (*stack)->n;
-pop(stack, counter); // Remove the top element
+pop(stack, counter);
 }
